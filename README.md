@@ -14,6 +14,8 @@ Installing
 
 Usage
 -----
+First you'll need to setup the required credentials, copy the empty credentials.yml file from /lib and make a new folder in your home directory (~/.gmail_todo) and copy the yml file there. Enter your gmail credentials, if you have 2 factor auth turned on (which you should) you can make a token by going to account -> security -> app passwords
+
 from the terminal:
 
     todo <subject> <body>
