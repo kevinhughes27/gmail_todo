@@ -7,7 +7,6 @@ saved!
 
 Usage
 -----
-
 from the terminal:
 
     todo <subject> <body>
@@ -16,6 +15,7 @@ the string "[ToDo]" will be appended to the subject, I use this to auto filter t
 
 Building from source
 --------------------
+run:
 
-gem build gmail_todo.gemspec
-gem install gmail_todo-0.0.1.gem
+    gem build gmail_todo.gemspec
+    gem install gmail_todo-0.0.1.gem
