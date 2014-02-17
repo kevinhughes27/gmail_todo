@@ -10,9 +10,7 @@ Usage
 
 from the terminal:
 
-    ```
     todo <subject> <body>
-    ```
 
 the string "[ToDo]" will be appended to the subject, I use this to auto filter these emails to my ToDo label and star them.
 
