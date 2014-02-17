@@ -8,6 +8,6 @@ Gem::Specification.new do |s|
   s.email       = 'kevinhughes27@gmail.com'
   s.files       = ["lib/gmail_todo.rb"]
   s.executables = ["todo"]
-  s.homepage    = 'http://rubygems.org/gems/gmail_todo'
+  s.homepage    = 'https://github.com/pickle27/gmail_todo'
   s.license     = 'MIT'
 end
