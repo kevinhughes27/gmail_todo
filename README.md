@@ -9,6 +9,7 @@ Usage
 -----
 
 from the terminal:
+
     ```
     todo <subject> <body>
     ```
