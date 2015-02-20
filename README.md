@@ -29,4 +29,4 @@ from the terminal:
 the string "[ToDo]" will be appended to the subject, I use this to auto filter these emails to my ToDo label and star them.
 
 On first use the app will prompt you for gmail credentials. Your credentials will
-be stored as yml in a hidden folder in your home directory. If you have 2 factor auth turned on for your gmail account (which you should) then you'll need an app token. You can get a token by going to `account -> security -> app passwords` of your gmail account.
+be stored as yaml in a hidden file in your home directory. If you have 2 factor auth turned on for your gmail account (which you should) then you'll need an app token. You can get a token by going to `account -> security -> app passwords` of your gmail account.
