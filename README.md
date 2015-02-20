@@ -12,20 +12,21 @@ Installing
     gem install gmail_todo
 
 
+Building from source
+--------------------
+run:
+
+    gem build gmail_todo.gemspec
+    gem install gmail_todo-X.X.X.gem
+
+
 Usage
 -----
-First you'll need to setup the required credentials, copy the empty credentials.yml file from /lib and make a new folder in your home directory (~/.gmail_todo) and copy the yml file there. Enter your gmail credentials, if you have 2 factor auth turned on (which you should) you can make a token by going to account -> security -> app passwords
-
 from the terminal:
 
     todo <subject> <body>
 
 the string "[ToDo]" will be appended to the subject, I use this to auto filter these emails to my ToDo label and star them.
 
-
-Building from source
---------------------
-run:
-
-    gem build gmail_todo.gemspec
-    gem install gmail_todo-0.0.1.gem
+On first use the app will prompt you for gmail credentials. Your credentials will
+be stored as yml in a hidden folder in your home directory. If you have 2 factor auth turned on for your gmail account (which you should) then you'll need an app token. You can get a token by going to `account -> security -> app passwords` of your gmail account.

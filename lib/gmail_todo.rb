@@ -2,25 +2,20 @@ require 'gmail'
 
 class GmailToDo
 
-  LOCAL_CREDENTIALS = ENV['HOME'] + '/.gmail_todo/credentials.yml' unless defined?(LOCAL_CREDENTIALS)
-  DEFAULT_CREDENTIALS = File.dirname(__FILE__) + '/credentials.yml' unless defined?(DEFAULT_CREDENTIALS)
+  CREDENTIALS = ENV['HOME'] + '/.gmail_todo_credentials.yml'
+
+  attr_reader :username
+  attr_reader :password
 
   def initialize
-    file = File.exists?(LOCAL_CREDENTIALS) ? LOCAL_CREDENTIALS : DEFAULT_CREDENTIALS
-    credentials = YAML.load(File.read(file))
-    @username = credentials["gmail"]["username"]
-    @password = credentials["gmail"]["password"]
+    if File.exists?(CREDENTIALS)
+      load_credentials
+    else
+      prompt_for_credentials
+    end
   end
 
-  def username
-    @username
-  end
-
-  def password
-    @password
-  end
-
-  def send_todo(todo, details = nil)
+  def send(todo, details = nil)
     gmail = Gmail.connect(username, password)
 
     gmail.deliver do
@@ -30,6 +25,28 @@ class GmailToDo
     end
 
     gmail.logout
+  end
+
+  private
+
+  def load_credentials
+    credentials = YAML.load(File.read(CREDENTIALS))
+    @username = credentials["gmail"]["username"]
+    @password = credentials["gmail"]["password"]
+  end
+
+  def prompt_for_credentials
+    puts "Enter your gmail username: "
+    @username = $stdin.gets.chomp
+    puts "Enter your gmail password or token: "
+    @password = $stdin.gets.chomp
+
+    save_credentials
+  end
+
+  def save_credentials
+    credentials = {gmail: {username: username, password: password}}
+    File.open(CREDENTIALS, 'w') {|f| f.write credentials.to_yaml }
   end
 
 end
